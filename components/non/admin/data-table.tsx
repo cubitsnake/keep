@@ -148,9 +148,10 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
     header: ({ table }) => (
       <div className="flex items-center justify-center">
         <Checkbox
-          checked={
-            table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
+          checked={table.getIsAllPageRowsSelected()}
+          indeterminate={
+            !table.getIsAllPageRowsSelected() &&
+            table.getIsSomePageRowsSelected()
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
@@ -409,7 +410,15 @@ export function DataTable({
         <Label htmlFor="view-selector" className="sr-only">
           View
         </Label>
-        <Select defaultValue="outline">
+        <Select
+          defaultValue="outline"
+          items={{
+            outline: "Outline",
+            "past-performance": "Past Performance",
+            "key-personnel": "Key Personnel",
+            "focus-documents": "Focus Documents",
+          }}
+        >
           <SelectTrigger
             className="@4xl/main:hidden flex w-fit"
             id="view-selector"

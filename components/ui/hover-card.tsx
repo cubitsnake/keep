@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import { PreviewCard as HoverCardPrimitive } from "@base-ui/react/preview-card"
 
 import { cn } from "@/lib/utils"
