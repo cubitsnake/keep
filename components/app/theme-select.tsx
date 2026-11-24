@@ -18,20 +18,20 @@ export default function ThemeSelect() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <span className="sr-only">The current theme is: {theme}</span>
-          {(() => {
-            switch (theme) {
-              case 'light':
-                return <Sun size={20} />
-              case 'dark': 
-                return <Moon size={20} />
-              default:
-                return <Monitor size={20} />
-            }
-          })()}
-        </Button>
+      <DropdownMenuTrigger
+        render={<Button variant="outline" size="icon" />}
+      >
+        <span className="sr-only">The current theme is: {theme}</span>
+        {(() => {
+          switch (theme) {
+            case 'light':
+              return <Sun size={20} />
+            case 'dark': 
+              return <Moon size={20} />
+            default:
+              return <Monitor size={20} />
+          }
+        })()}
       </DropdownMenuTrigger>
       <DropdownMenuContent align="center">
         <DropdownMenuItem
