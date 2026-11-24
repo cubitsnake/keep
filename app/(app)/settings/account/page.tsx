@@ -257,17 +257,19 @@ export default function SettingsAccount() {
           </div>
 
           <Dialog open={openDialog} onOpenChange={setOpenDialog}>
-            <DialogTrigger asChild>
-              <Button 
-                type="button"
-                className="bg-red-500 text-white hover:bg-red-500/75 hover:text-white/75"
-                disabled={toSubmit || toRemove || toDelete}
-              >
-                {!toDelete 
-                  ? <><LucideWalletMinimal /> Delete your account</>
-                  : <><LucideLoader2 className="animate-spin" /> Processing...</>
-                }
-              </Button>
+            <DialogTrigger
+              disabled={toSubmit || toRemove || toDelete}
+              render={
+                <Button
+                  type="button"
+                  className="bg-red-500 text-white hover:bg-red-500/75 hover:text-white/75"
+                />
+              }
+            >
+              {!toDelete 
+                ? <><LucideWalletMinimal /> Delete your account</>
+                : <><LucideLoader2 className="animate-spin" /> Processing...</>
+              }
             </DialogTrigger>
             <DialogContent className="sm:max-w-[450px]">
               <DialogHeader>
