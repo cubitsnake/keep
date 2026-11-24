@@ -80,17 +80,14 @@ export default function SettingsNav({
             {settings.map((setting, key) => (
               <Button
                 key={key}
-                asChild
+                nativeButton={false}
+                render={<Link href={setting?.to ?? ''} />}
                 variant="ghost"
                 size="sm"
+                className={`justify-start ${setting.to === pathname ? 'bg-muted' : 'bg-none'}`}
               >
-                <Link
-                  href={setting?.to ?? ''}
-                  className={`justify-start ${setting.to === pathname ? 'bg-muted' : 'bg-none'}`}
-                >
-                  <DynamicIcon name={setting?.icon ?? ''} size={16} className="opacity-25" />
-                  <span>{setting?.label ?? ''}</span>
-                </Link>
+                <DynamicIcon name={setting?.icon ?? ''} size={16} className="opacity-25" />
+                <span>{setting?.label ?? ''}</span>
               </Button>
             ))}
           </div>

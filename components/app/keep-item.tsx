@@ -201,14 +201,10 @@ export default function KeepItem({
             </div>
           </div>
           <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="link"
-                size="icon"
-                className="focus-visible:ring-0 focus-visible:bg-muted/50"
-              >
-                <LucideEllipsisVertical />
-              </Button>
+            <DropdownMenuTrigger
+              render={<Button variant="link" size="icon" className="focus-visible:ring-0 focus-visible:bg-muted/50" />}
+            >
+              <LucideEllipsisVertical />
             </DropdownMenuTrigger>
             <DropdownMenuContent side="top" align="end">
               <DropdownMenuItem

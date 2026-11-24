@@ -51,32 +51,29 @@ export default function Auth() {
             </Button>
           ) : (
             <DropdownMenu>
-              <DropdownMenuTrigger asChild className="cursor-pointer">
-                <div className="avatar" style={{ backgroundImage: `url(${session?.user?.photo ?? '/pfimg.svg'})` }}></div>
-              </DropdownMenuTrigger>
+              <DropdownMenuTrigger
+                nativeButton={false}
+                className="cursor-pointer"
+                render={<div className="avatar" style={{ backgroundImage: `url(${session?.user?.photo ?? '/pfimg.svg'})` }} />}
+              />
               <DropdownMenuContent className="w-38" align="end" sideOffset={10}>
                 <DropdownMenuLabel className="cursor-default">
                   My Account
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem asChild disabled={!session?.user?.username}>
-                    <Link 
-                      href={`/user/${session?.user?.username ?? ''}`}
-                      className="cursor-pointer" 
-                    >
-                      <LucideUser />
-                      Profile
-                    </Link>
+                  <DropdownMenuItem
+                    disabled={!session?.user?.username}
+                    render={<Link href={`/user/${session?.user?.username ?? ''}`} className="cursor-pointer" />}
+                  >
+                    <LucideUser />
+                    Profile
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link 
-                      href="/settings/profile" 
-                      className="cursor-pointer" 
-                    >
-                      <LucideSettings />
-                      Settings
-                    </Link>
+                  <DropdownMenuItem
+                    render={<Link href="/settings/profile" className="cursor-pointer" />}
+                  >
+                    <LucideSettings />
+                    Settings
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />

@@ -55,8 +55,13 @@ export default async function AuthVerifyRequest(props: {
                   <input type="hidden" name="callbackUrl" value={callbackUrl ?? ""} />
                   <Button type="submit" variant="link" size="sm">Send a new code</Button>
                 </form>
-                <Button asChild variant="link" size="sm">
-                  <Link href="/auth/signin">Use a different email</Link>
+                <Button
+                  nativeButton={false}
+                  render={<Link href="/auth/signin" />}
+                  variant="link"
+                  size="sm"
+                >
+                  Use a different email
                 </Button>
               </div>
             </>
@@ -66,11 +71,15 @@ export default async function AuthVerifyRequest(props: {
                 <p>A sign in code has been sent to your email address.</p>
               </CardDescription>
               <div className="flex gap-3 justify-center">
-                <Button asChild>
-                  <Link href="/auth/signin">Sign in</Link>
+                <Button nativeButton={false} render={<Link href="/auth/signin" />}>
+                  Sign in
                 </Button>
-                <Button asChild variant="outline">
-                  <Link href="/"><LucideHouse /> Go home</Link>
+                <Button
+                  nativeButton={false}
+                  render={<Link href="/" />}
+                  variant="outline"
+                >
+                  <LucideHouse /> Go home
                 </Button>
               </div>
             </>
